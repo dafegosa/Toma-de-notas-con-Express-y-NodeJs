@@ -1,0 +1,8 @@
+extend layout
+block content
+
+    a(href = '/notas/new') Nueva nota
+    each nota in notas
+      div
+        h3 #{nota.id} - #{nota.title}
+        p= nota.body

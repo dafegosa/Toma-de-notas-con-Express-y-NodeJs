@@ -1,0 +1,16 @@
+extend layout
+block content
+
+    a(href = '/') Cancelar
+    form(action = '/notas', method = 'POST')
+      div
+        div
+          label(for='title') Título
+        input(type='text', id = 'title', name='title')
+
+      div
+        div
+          label(for='body') Texto
+        textarea(id='body', name='body', rows='8')
+
+        button(type='submit') Enviar
