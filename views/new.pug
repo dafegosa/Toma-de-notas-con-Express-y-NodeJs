@@ -1,16 +1,22 @@
-extend layout
-block content
+extends index
 
-    a(href = '/') Cancelar
-    form(action = '/notas', method = 'POST')
+block body
+  div(class="note-form-page")
+    form(action="/notas", method="post")
       div
-        div
-          label(for='title') Título
-        input(type='text', id = 'title', name='title')
-
+        input(type="text", id="title", name="title", placeholder="Escribe el título", autocomplete="off" autofocus)
       div
-        div
-          label(for='body') Texto
-        textarea(id='body', name='body', rows='8')
+        textarea(id="body", name="body", rows="8", placeholder="Escribe el texto ...")
 
-        button(type='submit') Enviar
+      div(class="form-actions")
+        a(href="/", class="btn") Cancelar
+        button(type="submit", class="btn btn-primary") Crear Nota
+
+  script.
+    var textarea = document.getElementById("body");
+    var heightLimit = 1000; /* Maximum height: 1000px */
+
+    textarea.oninput = function() {
+      textarea.style.height = ""; /* Reset the height*/
+      textarea.style.height = Math.min(textarea.scrollHeight, heightLimit) + "px";
+    };

@@ -1,8 +1,21 @@
-extend layout
-block content
+extends layout
 
-    a(href = '/notas/new') Nueva nota
-    each nota in notas
-      div
-        h3 #{nota.id} - #{nota.title}
-        p= nota.body
+block content
+  div(class="container expand")
+    div(class="list expand")
+      div(class="list-header")
+        a(href="/notas/new")
+          i(class="far fa-sticky-note")
+          |
+          | Nueva Nota
+      each nota in notas
+        a(href="/notas/" + nota._id class="note" + (currentNote && currentNote._id.equals(nota._id) ? " active" : ""))
+          div(class="note-title")= nota.title
+          div(class="note-body")= nota.truncateBody()
+    div(class="body")
+      div(class="body-header")
+        a(href="/logout")
+          i(class="fas fa-sign-out-alt")
+          |
+          | Logout
+      block body

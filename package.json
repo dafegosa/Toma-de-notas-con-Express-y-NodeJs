@@ -4,6 +4,7 @@
   "description": "Aplicación para tomar notas.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -13,8 +14,10 @@
   "author": "Daniel Gómez",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.0",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
+    "marked": "^1.2.0",
     "mongoose": "^5.10.9",
     "pug": "^3.0.0"
   }
